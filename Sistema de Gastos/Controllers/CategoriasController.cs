@@ -21,8 +21,7 @@ namespace GastosApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategorias()
         {
-            // Le paso al contexto de la base de datos que quiero acceder a la tabla "Categorias" y que me devuelva una lista de categorías.
-            // ToListAsync() ejecuta la consulta de forma asíncrona y devuelve el resultado como una lista.
+            // Esto trae TODO lo que insertaste en SQL
             return await _context.Categorias.ToListAsync();
         }
     }
