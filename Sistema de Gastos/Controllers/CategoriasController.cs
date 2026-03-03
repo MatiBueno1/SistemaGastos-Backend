@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Sistema_de_Gastos.Models; // Importo modelos
+using Sistema_de_Gastos.Models; // Importo modelos s para usar ApplicationDbContext y Categoria
 
 namespace GastosApi.Controllers
 {
