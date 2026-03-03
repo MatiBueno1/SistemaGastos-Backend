@@ -6,13 +6,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class Transaccion
 {
     [Key]
-    [Column("TransaccionesID")] // <--- ESTO ES LO IMPORTANTE: Le dice a C# que en SQL se llama así
-    public int TransaccionId { get; set; } // En C# lo podemos seguir llamando así por comodidad
+    [Column("TransaccionesID")] 
+    public int TransaccionId { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
     public decimal Monto { get; set; }
 
     public DateTime Fecha { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "nvarchar(500)")]
     public string? Descripcion { get; set; }
     public int CategoriaId { get; set; }
 
