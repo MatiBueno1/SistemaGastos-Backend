@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Sistema_de_Gastos.Models; // Importamos tus modelos
+using Sistema_de_Gastos.Models; // Importo modelos
 
 namespace GastosApi.Controllers
 {
-    [Route("api/[controller]")] // La URL será: api/categorias
-    [ApiController] // Le dice a .NET que esto es una API (no una página web común)
+    [Route("api/[controller]")] //  URL
+    [ApiController] // Le paso a .NET que esta clase es un controlador de API
     public class CategoriasController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        // CONSTRUCTOR: Aquí "inyectamos" la base de datos.
-        // C# nos pasa el jefe de obra (DbContext) para que lo usemos acá.
+        // CONSTRUCTOR: Acá meto la inyección de dependencias para el contexto de la base de datos.
+        // c# va a crear una instancia de ApplicationDbContext y se la va a pasar a este controlador cada vez que se necesite.
         public CategoriasController(ApplicationDbContext context)
         {
             _context = context;
@@ -21,8 +21,8 @@ namespace GastosApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategorias()
         {
-            // Le decimos al contexto: "Traeme la lista de Categorias de SQL"
-            // ToListAsync() es lo que ejecuta el "SELECT * FROM Categorias"
+            // Le paso al contexto de la base de datos que quiero acceder a la tabla "Categorias" y que me devuelva una lista de categorías.
+            // ToListAsync() ejecuta la consulta de forma asíncrona y devuelve el resultado como una lista.
             return await _context.Categorias.ToListAsync();
         }
     }

@@ -28,7 +28,7 @@ namespace Sistema_de_Gastos.Controllers
         public async Task<ActionResult<Transaccion>> PostTransaccion(Transaccion transaccion)
         {
             _context.Transacciones.Add(transaccion);
-            await _context.SaveChangesAsync(); // Esto es el "INSERT INTO" de SQL
+            await _context.SaveChangesAsync(); // Guarda en la base de datos
 
             return CreatedAtAction("GetTransacciones", new { id = transaccion.TransaccionId }, transaccion);
         }

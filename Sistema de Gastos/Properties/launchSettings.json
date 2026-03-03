@@ -10,7 +10,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "http": {
+    "http": {                       //Cambié a https para evitar el error de certificado
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
